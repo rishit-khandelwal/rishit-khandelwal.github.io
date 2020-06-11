@@ -48,6 +48,20 @@
                     color: #333;
                     transform: rotate(-10deg);
                }
+               @keyframes wave {
+                    10% {
+                         transform: translate(0px,25px);
+                    }
+                    30% {
+                         transform: translate(0px,15px);
+                    }
+                    100% {
+                         transform: translate(0px,0px);
+                    }
+               }
+               #brython {
+                    animation: name duration timing-function delay iteration-count direction fill-mode;
+               }
           </style>
      </head>
      <body>
@@ -75,8 +89,7 @@
           </div>
 
           <div id = 'brython'>
-               <h2>Python as Brython</h2>
-               <iframe src="http://brython.info/console.html" width="800" height="400"></iframe>
+               <iframe src="./happy_birthday.mp4" width="800" height="400"></iframe>
           </div>
           <script>
                anime({
