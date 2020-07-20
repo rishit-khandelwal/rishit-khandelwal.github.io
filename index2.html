@@ -1,0 +1,110 @@
+<html>
+     <head>
+          <title>Welcome</title>
+          <script src='anime.min.js'></script>
+          <meta name="google-site-verification" content="63bZqwbmZAB1d9_yg-VDDN4KxMuvumFfwixgSKg9kFg" />
+          <style>
+               body {
+                    background-image: linear-gradient(to bottom right,#333,#aaa);
+               }
+               * {
+                    font-size: 50px;
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+               }
+               .o {
+                    width: 1rem;
+                    height: 1rem;
+                    text-align: center;
+                    display: inline-block;
+                    position: relative;
+                    background-color: rgba(0, 0, 0, 0);
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                    z-index: 1;
+                    color: rgb(5, 52, 114);
+               }
+               .b  {
+                    position: fixed;
+                    z-index: 2;
+                    width: 22.25rem;
+                    height: 60px;
+                    display: block;
+                    background-image: linear-gradient(to bottom,rgb(255,255,0),rgb(127,127,0));
+               }
+               .ow {
+                    background-color: #777;
+                    width: 22.25rem;
+                    height: calc(1.5rem + 270px);
+                    user-select: none;
+               }
+               .bg {
+                    position: fixed;
+                    width: inherit;
+                    height: calc(270px);
+                    padding-top: 1.5rem;
+                    letter-spacing: calc((22.5rem / 12) + 10px);
+                    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+                    opacity: 0.5;
+                    z-index: 0;
+                    color: #333;
+                    transform: rotate(-10deg);
+               }
+               @keyframes wave {
+                    10% {
+                         transform: translate(0px,25px);
+                    }
+                    30% {
+                         transform: translate(0px,15px);
+                    }
+                    100% {
+                         transform: translate(0px,0px);
+                    }
+               }
+               #brython {
+                    animation: name duration timing-function delay iteration-count direction fill-mode;
+               }
+          </style>
+     </head>
+     <body>
+          <div class='b'></div>
+          <div class='ow'>
+               <span class='bg'>Rishit</span>
+               <div class='o'>R</div>
+               <div class='o'>I</div>
+               <div class='o'>S</div>
+               <div class='o'>H</div>
+               <div class='o'>I</div>
+               <div class='o'>T</div>
+               <div class='o'>'</div>
+               <div class='o'>S</div>
+               <div class='o'> </div>
+               <div class='o'>W</div>
+               <div class='o'>E</div>
+               <div class='o'>B</div>
+               <div class='o'> </div>
+               <div class='o'>P</div>
+               <div class='o'>A</div>
+               <div class='o'>G</div>
+               <div class='o'>E</div>
+               <div class='o'>!</div>
+          </div>
+
+          <div id = 'brython'>
+		<a href="./myconfig.html">Config</a>
+          </div>
+          <script>
+               anime({
+                    targets: '.o',
+                    translateY: 270,
+                    // direction: '',
+                    loop: true,
+                    delay: function(el, i, l) {
+                         return i * l * 10;
+                    },
+                    endDelay: function(el, i, l) {
+                         return l - i * l;
+                    }
+               });
+          </script>
+     </body>
+
+</html>
