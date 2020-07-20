@@ -10,7 +10,15 @@
 
   <!-- This line removes any default padding and style.
        You might only need one of these values set. -->
-  <style> body { padding: 0; margin: 0; } </style>
+  <style> body { padding: 0; margin: 0; }
+	 body::after {
+	 color: green;
+	 display: block;
+	 padding-left: 10px;
+	 font-family: 'Consolas';
+	 content: 'Zoom in max';
+	 }
+  </style>
 </head>
 
 <body>
