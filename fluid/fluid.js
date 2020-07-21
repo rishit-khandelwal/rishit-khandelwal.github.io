@@ -35,10 +35,19 @@ class DotArray  {
         if (c == 0 && i == 0) {
           break;
         }
+
+        if (c>2) {
+          // let d=this.array[c][i].colorval;
+            this.array[c-2][i].colorval = ((this.array[c-2][i].colorval)+this.array[c][i].colorval)/2;
+        }
+        if(c!=size-3) {
+            // this.array[c+2][i].colorval = ((this.array[c+2][i].colorval)+this.array[c][i].colorval)/2;
+
+        }
         if (c!=0) {
           let d = this.array[c-1][i].colorval;
           this.array[c-1][i].colorval = (this.array[c][i].colorval+d)/2;
-          // console.log((2*this.array[c][i].colorval*d)/(this.array[c][i].colorval+d));
+
           t += this.array[c-1][i].colorval;
           n++;
         }
@@ -60,7 +69,8 @@ class DotArray  {
           t += this.array[c][i+1].colorval;
           n++;
         }
-        this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n+2);
+        
+         this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n/1.2);
 
       }
       c++;
@@ -77,11 +87,14 @@ class DotArray  {
 }
 
 var dots = [];
-let s = window.innerHeight;
+// let s = window.innerHeight;
+let s = 64;
 let ss = 1;
+let fluidity;
 function setup() {
   createCanvas(s,s);
   dots = new DotArray(s,s/ss);
+  fluidity = createSlider(32,255,64,1);
 }
 
 function draw() {
@@ -90,7 +103,7 @@ function draw() {
   let y = mouseY;
   // console.log(x,y)
   if (x < width && y < height && x % ss == 0 && y % ss == 0 && x != 0 && y != 0) {
-      dots.array[x][y].colorval = (255+dots.array[x][y].colorval)/2;
+      dots.array[x][y].colorval = (fluidity.value()+dots.array[x][y].colorval)/2;
   }
   dots.update();
   dots.show();

@@ -1,0 +1,161 @@
+<html>
+	<head>
+		<title> What is github </title>
+		<style>
+			body,html {
+				padding: 0;
+				margin: 0;
+			}
+			slide * {
+				font-family: 'Consolas';
+			}
+		
+			slide heading {
+				font-size: 250%;
+				font-weight: 900;
+				display: block;
+			}
+			slide content {
+				font-weight: 700;
+			}
+			slide control {
+				display: block;
+			}
+
+			slide control show {
+				display: block;
+			}
+
+			slide control show button {
+				background-color: #333;
+				border: 0;
+				height: 1rem;	
+				padding: 1.5rem;
+				display: inline-block;
+				transition: 1s;
+				background-image: linear-gradient(to top,#333,#aaa);
+			}
+			
+			slide control show button:hover {
+				transition: 1s;
+				background-image: linear-gradient(to bottom,#333,#aaa);
+				border: 0;
+				display: block;
+			}
+
+			slide control show button:active {
+				background-color: #666;
+				border: none;
+				padding: 17px;
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<slide path="">
+			<heading>
+				What is github?
+			</heading>
+
+			<content display="0">
+				Some content...
+			</content>
+
+			<control>
+				<show label = "Show Slide"></show>
+			</control>
+		</slide>
+
+		<slide path="second">
+			<heading>
+				What is github?
+			</heading>
+
+			<content display="0">
+				Some content...
+			</content>
+
+			<control>
+				<show label = "Show Slide"></show>
+			</control>
+		</slide>
+
+		<script>
+			// function SlideInit() {
+				const slides = document.getElementsByTagName('slide');
+
+				function show(obj) {
+					// window.location.hash = obj.getAttribute('path');
+					for (let i = 0; i < obj.length; i++) {
+					for (let child of obj[i].children) {
+						let name = child.nodeName;
+						if (name == 'CONTENT') {
+							let display = child.getAttribute('display');
+							if (display == '0') {
+								child.setAttribute('display','1');
+							}
+						}
+					}
+				}
+				}
+
+				function slide() {
+				let  m = 0;
+				for (let i = 0 ; i < slides.length ; i++) {
+					let path = slides[i].getAttribute('path');
+					let rpath = window.location.hash;
+					// console.log(rpath,path)
+					if (path != '') {
+						path = '#'+path;
+					}
+					if (path != null && rpath == path) {
+						slides[i].hidden = false
+					} else {
+						slides[i].hidden = true
+					}
+					for (let child of slides[i].children) {
+						let name = child.nodeName;
+						if (name == 'CONTENT') {
+							let display = child.getAttribute('display');
+							if (display == '0') {
+								child.hidden = true
+							}
+							if (display == '1') {
+								child.hidden = false
+							}
+						}
+						if (name == 'CONTROL') {
+							for (let control of child.children) {
+								let cname = control.nodeName;
+								if (cname == 'SHOW') {
+									// console.log(control.children.length);
+									if (control.children.length == 0) {
+									label = control.getAttribute('label')
+
+									var cbut = document.createElement(
+											'button'
+										)
+									if (label != null) {
+										cbut.textContent = label;
+									} else {
+										cbut.textContent = 'Show'
+									}
+									cbut.onclick = () => {
+										show(slides)
+									}
+										cbut.style['marginTop'] = window.innerHeight.toString()+'px'
+										control.appendChild(cbut)
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+
+			// show(document.getElementById('1'))
+			setInterval(slide,100)
+			// SlideInit();
+		</script>
+	</body>
+</html>

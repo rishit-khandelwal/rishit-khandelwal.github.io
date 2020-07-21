@@ -1,28 +1,73 @@
 <html>
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <title> Rishit Khandelwal @ Github </title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
-  <!-- PLEASE NO CHANGES BELOW THIS LINE (UNTIL I SAY SO) -->
-  <script language="javascript" type="text/javascript" src="libraries/p5.min.js"></script>
-  <script language="javascript" type="text/javascript" src="fluid.js"></script>
+        body,html {
+          padding: 0;
+          margin: 0;
+        }
 
-  <!-- OK, YOU CAN MAKE CHANGES BELOW THIS LINE AGAIN -->
+      .parralax {
+        background-image: url('sceneries/bg1.jpg');
 
-  <!-- This line removes any default padding and style.
-       You might only need one of these values set. -->
-  <style> body { padding: 0; margin: 0; }
-	 body {
-	 color: green;
-	 font-family: 'Consolas';
-	 content: 'Zoom in max (Beware this is wierd)';
-	 }
-  </style>
-</head>
+        height: 500px;
 
-<body>
-  <footer>
-  just try clicking this --> <a href="/fluid/">Beta Fluid Jet</a>
-</footer>
-</body>
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      .font {
+        padding-top: 0.5rem;
+        font-family: 'Press Start 2P', cursive;
+      }
+
+      .head-link {
+        font-size: 23px;
+      }
+
+      .head-link:link,.head-link:visited {
+        color: #333;
+      }
+      
+      .head-link:hover {
+        transition: 0.4s;
+        color: #fff;
+      }
+
+      .photo {
+        width: 128.5px;
+        height: 160px;
+        align-content: right;
+      }
+
+      .content {
+        display: block;
+        font-size: 18px;
+
+        padding: 0.1rem;
+
+        font-weight: 800;
+        background-image: linear-gradient(to right,rgba(255,255,255,1),rgba(255,255,255,0.3));
+      }
+
+      @media only screen and (max-device-wclassth: 1366px) {
+        .parallax {
+          background-attachment: scroll;
+        }
+      }
+    </style>
+  </head>
+  <body class ="parralax">
+    <h1 class = "font">It's <a class="head-link" href = "https://github.com/rishit-khandelwal">@rishit</a></h1>
+
+    <img src="rishit.jpg" class = "photo">
+
+    <span class = "content font"> I love coding</span>
+    <span class = "content font"> And animation</span>
+    <span class = "content font"> And doodling</span>
+  </body>
 </html>
