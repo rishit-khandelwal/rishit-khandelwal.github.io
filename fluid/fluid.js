@@ -97,6 +97,11 @@ function setup() {
   fluidity = createSlider(32,255,64,4);
 }
 
+function mouseClicked() {
+  // if (mouse)
+  dots.array[mouseX][mouseY].colorval = 0;
+}
+
 function draw() {
   background(172);
   let x = mouseX;
