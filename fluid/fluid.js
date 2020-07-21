@@ -60,7 +60,7 @@ class DotArray  {
           t += this.array[c][i+1].colorval;
           n++;
         }
-        this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n*2);
+        this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n+2);
 
       }
       c++;
