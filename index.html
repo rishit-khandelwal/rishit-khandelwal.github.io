@@ -54,6 +54,25 @@
         background-image: linear-gradient(to right,rgba(255,255,255,1),rgba(255,255,255,0.3));
       }
 
+      .sample-frame {
+        border: 2px;
+        border-color: #333;
+      }
+
+      @media only screen and (max-device-wclassth: 600px) {
+        .no-background {
+          display: none;
+        }
+      }
+
+      .no-background {
+        background-color: rgba(0,0,0,0);
+        display: block;
+        margin-top: 10px;
+        padding-right: 10px;
+        font-family: 'Press Start 2P';
+      }
+
       @media only screen and (max-device-wclassth: 1366px) {
         .parallax {
           background-attachment: scroll;
@@ -69,5 +88,11 @@
     <span class = "content font"> I love coding</span>
     <span class = "content font"> And animation</span>
     <span class = "content font"> And doodling</span>
+
+    <span class = "no-background">
+      <iframe class = "sample-frame" src="https://rishit-khandelwal.github.io/fluid" aria-label="Fluid Jel - A JavaScript based fluid simulation test">
+      </iframe>
+      Fluid Jel - A JavaScript based fluid simulation test
+    </span>
   </body>
 </html>

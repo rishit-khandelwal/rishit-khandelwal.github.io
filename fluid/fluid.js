@@ -88,13 +88,13 @@ class DotArray  {
 
 var dots = [];
 // let s = window.innerHeight;
-let s = 64;
+let s = 150;
 let ss = 1;
 let fluidity;
 function setup() {
   createCanvas(s,s);
   dots = new DotArray(s,s/ss);
-  fluidity = createSlider(32,255,64,1);
+  fluidity = createSlider(32,255,64,4);
 }
 
 function draw() {
