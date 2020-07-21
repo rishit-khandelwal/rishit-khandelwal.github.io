@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<title> SineWave Chart </title>
+		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+	</head>
+	<body>
+		<canvas id="myChart"></canvas>
+		<script>
+			var ctx = document.getElementById('myChart').getContext('2d');
+			let dat = [];
+			let lab = [];
+			for (let i = 0; i < 1000 ; i++) {
+				dat.push(Math.acos(Math.sin(Math.sin(i/25))));
+				lab.push(i);
+			}
+			var chart = new Chart(ctx, {
+			    // The type of chart we want to create
+			    type: 'line',
+
+			    // The data for our dataset
+			    data: {
+			        labels: lab,
+			        datasets: [{
+			            label: 'My First dataset',
+			            backgroundImage: 'linear-gradient(to right,rgb(99, 99, 255,0.3),rgb(99, 99, 255,1)',
+			            borderColor: 'rgb(255, 99, 132)',
+			            data: dat
+			        }]
+			    },
+
+			    // Configuration options go here
+			    options: {}
+			});
+		</script>
+	</body>
+</html>

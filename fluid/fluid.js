@@ -14,6 +14,7 @@ class Dot {
 class DotArray  {
   constructor(size,number) {
     this.array = [];
+    this.stepsize = size/number;
     let counter = 0;
     for (let x = 0; x < size ; x+=size/number) {
       this.array.push([]);
@@ -28,9 +29,12 @@ class DotArray  {
     let c = 0;
     for(let layer of this.array) {
       let size = layer.length;
-      for (let i = 1; i<size; i++) {
+      for (let i = 0; i<size; i+=this.stepsize) {
         let t = 0;
         let n = 0;
+        if (c == 0 && i == 0) {
+          break;
+        }
         if (c!=0) {
           let d = this.array[c-1][i].colorval;
           this.array[c-1][i].colorval = (this.array[c][i].colorval+d)/2;
@@ -56,11 +60,7 @@ class DotArray  {
           t += this.array[c][i+1].colorval;
           n++;
         }
-        if(this.array[c][i].colorval > 128) {
-          this.array[c][i].colorval += 128;
-        } else  {
-          //
-        }
+        this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n*2);
 
       }
       c++;
@@ -77,22 +77,11 @@ class DotArray  {
 }
 
 var dots = [];
-
-// function mousePressed() {
-//   let x = mouseX;
-//   let y = mouseY;
-//   if (dots.array[x][y].colorval == 0) {
-//     dots.array[x][y].colorval = 255;
-//   }
-//   if (dots.array[x][y].colorval == 255) {
-//     dots.array[x][y].colorval = 0;
-//   }
-// }
-
+let s = window.innerHeight;
+let ss = 1;
 function setup() {
-  let s = 142;
   createCanvas(s,s);
-  dots = new DotArray((width+height)/2,(width+height)/2);
+  dots = new DotArray(s,s/ss);
 }
 
 function draw() {
@@ -100,9 +89,8 @@ function draw() {
   let x = mouseX;
   let y = mouseY;
   // console.log(x,y)
-  if (x < width && y < height) {
-    
-      dots.array[x][y].colorval = 255; 
+  if (x < width && y < height && x % ss == 0 && y % ss == 0 && x != 0 && y != 0) {
+      dots.array[x][y].colorval = (255+dots.array[x][y].colorval)/2;
   }
   dots.update();
   dots.show();
