@@ -1,11 +1,16 @@
 class Dot {
   constructor (x,y) {
     this.position = createVector(x,y);
-    this.colorval = 0;
+    this.colorval = 128;
   }
   
   show() {
-    stroke(this.colorval);
+    if (this.position.y > 75) {
+      this.colorval = 255;
+    } else {
+      this.colorval = 0;
+    }
+      stroke(this.colorval);
     strokeWeight(1);
     point(this.position.x,this.position.y);
   }
@@ -30,20 +35,19 @@ class DotArray  {
     for(let layer of this.array) {
       let size = layer.length;
       for (let i = 0; i<size; i+=this.stepsize) {
+        if (c < size-1) {
+          if (this.array[c][i].colorval == 0 && this.array[c+1][i] == 255) {
+            this.array[c+1][i].colorval = 0;
+            this.array[c][i].colorval = 255;
+          }
+        }
+        /*
         let t = 0;
         let n = 0;
         if (c == 0 && i == 0) {
           break;
         }
 
-        if (c>2) {
-          // let d=this.array[c][i].colorval;
-            this.array[c-2][i].colorval = ((this.array[c-2][i].colorval)+this.array[c][i].colorval)/2;
-        }
-        if(c!=size-3) {
-            // this.array[c+2][i].colorval = ((this.array[c+2][i].colorval)+this.array[c][i].colorval)/2;
-
-        }
         if (c!=0) {
           let d = this.array[c-1][i].colorval;
           this.array[c-1][i].colorval = (this.array[c][i].colorval+d)/2;
@@ -71,7 +75,7 @@ class DotArray  {
         }
         
          this.array[c][i].colorval = (t+this.array[c][i].colorval)/(n/1.2);
-
+*/
       }
       c++;
     }
@@ -99,7 +103,14 @@ function setup() {
 
 function mouseClicked() {
   // if (mouse)
-  dots.array[mouseX][mouseY].colorval = 0;
+  if (mouseX <= s && mouseY <= s) {
+    for (let i = 0; i < mouseX ; i++) {
+    for (let j = 0; j < mouseY ; j++) {
+
+        dots.array[i][j].colorval = 0;
+      }
+      }
+  }
 }
 
 function draw() {
