@@ -1,1 +1,0 @@
-# rishit-khandelwal.github.io
