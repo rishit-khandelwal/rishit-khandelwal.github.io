@@ -1,0 +1,99 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap");
+* {
+  font-family: "JetBrains Mono";
+}
+
+body {
+  background-color: #333;
+  color: #eee;
+}
+
+#main {
+  font-size: 24px;
+}
+
+a:any-link {
+  text-decoration: none;
+}
+
+a:hover {
+  box-shadow: #222 10px 10px 6px;
+  transition: 0.3s;
+}
+
+a {
+  transition: 0.3s;
+}
+
+.ts::after {
+  content: " ♥";
+  font-size: 140%;
+  color: red;
+}
+
+ul {
+  text-align: center;
+  align-content: center;
+  list-style-type: none;
+}
+
+code {
+  background-color: #aaa;
+  padding-right: 4px;
+  padding-left: 4px;
+  border-radius: 5px;
+  color: #222;
+  text-decoration: none;
+}
+code img {
+  height: 1.4rem;
+  width: 1.4rem;
+}
+
+a code {
+  color: blue;
+}
+
+.join_dis {
+  display: inline-block;
+  font-weight: 500;
+  font-size: 30px;
+  font-size: 40px;
+  animation-name: swing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+}
+.join_dis i {
+  font-style: normal;
+}
+
+@keyframes swing {
+  from {
+    transform: translate(0, 20px);
+  }
+  to {
+    transform: translate(0, -20px);
+  }
+}
+.discord {
+  margin-top: 30px;
+  width: 30vw;
+  height: 30vh;
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
+}
+
+/*# sourceMappingURL=main.css.map */
