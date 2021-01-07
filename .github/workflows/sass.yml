@@ -36,9 +36,7 @@ jobs:
         run: npm i -g sass
 
       - name: Check Installation
-        run: |
-          sass --version
-          ls
+        run: ls
 
       - name: Build CSS
         run: "sass styles/src:styles/dist"
