@@ -32,6 +32,12 @@ a {
   color: red;
 }
 
+ul {
+  text-align: center;
+  align-content: center;
+  list-style-type: none;
+}
+
 code {
   background-color: #aaa;
   padding-right: 4px;
@@ -54,15 +60,40 @@ a code {
   font-weight: 500;
   font-size: 30px;
   font-size: 40px;
+  animation-name: swing;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
 }
 .join_dis i {
   font-style: normal;
 }
 
+@keyframes swing {
+  from {
+    transform: translate(0, 20px);
+  }
+  to {
+    transform: translate(0, -20px);
+  }
+}
 .discord {
   margin-top: 30px;
   width: 30vw;
   height: 30vh;
+  animation-name: shake;
+  animation-duration: 1s;
+  animation-direction: alternate-reverse;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% {
+    transform: rotate(10deg);
+  }
+  100% {
+    transform: rotate(-10deg);
+  }
 }
 
 /*# sourceMappingURL=main.css.map */
